@@ -4,11 +4,12 @@ const btnToggle = document.querySelector('.btn-toggle');
 btnCreate.addEventListener('click', () => {												 
   const input = document.querySelector('.input-main');
   const list = document.querySelector('ul');
-  const item = document.createElement('li');
   
-  item.textContent = input.value;
+  list.insertAdjacentHTML(
+    'afterbegin',  // 'beforebegin', 'beforeend', 'afterend' > nesse caso referente ao 'ul' inserido no list na linha 6
+    `<li>${input.value}</li>`
+  );
   input.value = '';
-  list.append(item);
 });
 
 btnToggle.addEventListener('click', () => {
